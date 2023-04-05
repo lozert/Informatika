@@ -1,7 +1,5 @@
 package Laba_9_stroki;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class exp_12 {
     public static void main(String[] args) {
@@ -14,34 +12,25 @@ public class exp_12 {
                 "Чиллим вечером у костра на природе."
         };
 
-        // Замены для исправления текста
-        String[] patternsToReplace = {
-                "(\\s+)", // Удаление повторяющихся пробелов
-                "\\b(будем\\s+говорить|ну|туто|короче|типа)\\b", // Удаление паразитических слов
-                "\\b(катка|кекать|краш|дноклы|лол|нуб|падра|ОМГ|стримить|флексить|чилить)\\b"// Замена молодежного сленга
-        };
+        String[] pastternReplace = {"короче","типа","туто","ну","катка","кекают","краш","дноклы","лол","нуб","падра",
+                                    "омг","\\Dстрим\\D","флексит","чиллим","\\s+"};
 
-        // Замены для исправления текста
-        String[] replacements = {
-                " ", // Удаление повторяющихся пробелов
-                "", // Удаление паразитических слов
-                "[заменено]" // Замена молодежного сленга
-        };
+
+
 
         // Применяем замены ко всем строкам
-        for (String message : messages) {
+        for( String message: messages) {
             System.out.println("Исходный текст: " + message);
 
-//            for (int i = 0; i < patternsToReplace.length; i++) {
-//                Pattern pattern = Pattern.compile(patternsToReplace[i]);
-//                Matcher matcher = pattern.matcher(message);
-//                message = matcher.replaceAll(replacements[i]);
-//
-//            }
+            for (int i = 0; i < pastternReplace.length; i++) {
+                message = message.toLowerCase().replaceAll(pastternReplace[i], " ");
 
-
+            }
             System.out.println("Исправленный текст: " + message);
+            System.out.println("");
         }
+
     }
+
 }
 
